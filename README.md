@@ -31,7 +31,7 @@ We welcome contributions from fellow cat enthusiasts and developers! To get star
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/Furry-Tales.git
+   git clone git@github.com:Fenaum/Furry-Tales.git
 2. Navigate to the project directory:
 3. Install dependencies:
 4. Start the development server:
