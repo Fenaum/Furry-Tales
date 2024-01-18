@@ -1,0 +1,82 @@
+{
+  "cats": [
+    {
+      "catProfile": {
+        "name": "Whiskers",
+        "id": 1,
+        "age": 3,
+        "breed": "Persian",
+        "color": "Gray",
+        "weight": 5.5,
+        "gender": "Male",
+        "personality": ["Playful", "Affectionate", "Curious"],
+        "vaccinations": {
+          "rabies": true,
+          "distemper": true,
+          "felineLeukemia": false
+        },
+        "owner": {
+          "name": "Your Name",
+          "contact": "your.email@example.com",
+          "address": "123 Main Street, Cityville"
+        },
+        "images": [
+          "https://example.com/cat-image1.jpg",
+          "https://example.com/cat-image2.jpg"
+        ]
+      }
+    },
+    {
+      "catProfile": {
+        "name": "Fluffy",
+        "id": 2,
+        "age": 2,
+        "breed": "Bengal",
+        "color": "Orange",
+        "weight": 4.5,
+        "gender": "Female",
+        "personality": ["Lazy", "Friendly", "Independent"],
+        "vaccinations": {
+          "rabies": true,
+          "distemper": true,
+          "felineLeukemia": false
+        },
+        "owner": {
+          "name": "John Doe",
+          "contact": "john.doe@example.com",
+          "address": "456 Elm Street, Townsville"
+        },
+        "images": [
+          "https://example.com/cat-image3.jpg",
+          "https://example.com/cat-image4.jpg"
+        ]
+      }
+    },
+    {
+      "catProfile": {
+        "name": "Paws",
+        "id": 3,
+        "age": 4,
+        "breed": "Siamese",
+        "color": "Black",
+        "weight": 6.0,
+        "gender": "Male",
+        "personality": ["Active", "Social", "Playful"],
+        "vaccinations": {
+          "rabies": true,
+          "distemper": true,
+          "felineLeukemia": false
+        },
+        "owner": {
+          "name": "Jane Smith",
+          "contact": "jane.smith@example.com",
+          "address": "789 Oak Street, Villageville"
+        },
+        "images": [
+          "https://example.com/cat-image5.jpg",
+          "https://example.com/cat-image6.jpg"
+        ]
+      }
+    }
+  ]
+}
