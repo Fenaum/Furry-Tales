@@ -36,6 +36,7 @@ async function getCatProfile(): Promise<CatProfile[]> {
 
 export default async function Home() {
   const cats = await getCatProfile();
+  console.log(cats);
 
  return (
    <main>
