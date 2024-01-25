@@ -1,5 +1,5 @@
 import { Card, CardHeader, CardTitle, CardDescription, }
-from "../components/ui/card"
+from "../components/ui/card/card"
 
 interface VaccinationStatus {
   rabies: boolean;
