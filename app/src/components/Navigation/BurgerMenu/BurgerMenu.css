@@ -1,0 +1,14 @@
+.burger-menu {
+    height: 3rem;
+    width: 3rem;
+    transition: transform 0.3s ease-in-out;    
+}
+
+.burger-menu:hover {
+    cursor: pointer;
+}
+
+.burger-menu.rotate {
+    transform: rotate(90deg);
+    transition: transform 0.3s ease-in-out;    
+}
