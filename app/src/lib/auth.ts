@@ -1,6 +1,9 @@
-import { getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
-
-export const auth = getAuth();
+import { auth } from "../../firebase/firebaseConfig"; // import your firebase instance
+import {
+  signInWithEmailAndPassword,
+  signOut,
+  createUserWithEmailAndPassword,
+} from "firebase/auth";
 
 interface UserCredentials {
   email: string;
@@ -17,6 +20,20 @@ export async function signInUser({ email, password }: UserCredentials) {
     return userCredential.user;
   } catch (error) {
     console.error("Error signing in with password and email", error);
+    throw error;
+  }
+}
+
+export async function signUpUser({ email, password }: UserCredentials) {
+  try {
+    const userCredential = await createUserWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+    return userCredential.user;
+  } catch (error) {
+    console.error("Error signing up with password and email", error);
     throw error;
   }
 }

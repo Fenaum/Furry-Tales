@@ -1,0 +1,11 @@
+.slide-in {
+ transition: transform 0.3s ease-out;
+ transform: translateX(0);
+ display: block;
+}
+
+.slide-out {
+ transition: transform 0.3s ease-in;
+ transform: translateX(-100%);
+ display: none;
+}

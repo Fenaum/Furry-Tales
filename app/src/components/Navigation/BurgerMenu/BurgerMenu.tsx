@@ -1,16 +1,19 @@
 "use client";
 
 import BurgerMenuIcon from "../../../../public/hamburger-menu-svgrepo-com.svg";
-import { useStore } from "../../../lib/zustandStore";
 import "./BurgerMenu.css";
 
-export default function BurgerMenu() {
-  const { isOpen, toggle } = useStore();
+interface BurgerMenuProps {
+  handleMenu: () => void;
+  isMenuOpen: boolean;
+}
+
+export default function BurgerMenu({handleMenu, isMenuOpen}: BurgerMenuProps) {
 
   return (
-    <button onClick={toggle}>
+    <button onClick={handleMenu}>
       <BurgerMenuIcon
-        className={isOpen ? "burger-menu" : "burger-menu rotate"}
+        className={isMenuOpen ? "burger-menu" : "burger-menu rotate"}
         alt="menu-icon"
       />
     </button>
