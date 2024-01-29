@@ -13,9 +13,10 @@ export default function BurgerMenu({handleMenu, isMenuOpen}: BurgerMenuProps) {
   return (
     <button onClick={handleMenu}>
       <BurgerMenuIcon
-        className={isMenuOpen ? "burger-menu" : "burger-menu rotate"}
+        className={isMenuOpen ? "burger-menu rotate" : "burger-menu"}
         alt="menu-icon"
       />
     </button>
   );
 }
+ 

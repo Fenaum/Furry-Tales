@@ -24,7 +24,7 @@ interface CatProfile {
     gender: string;
     personality: string[];
     vaccinations: VaccinationStatus;
-    owner: CatOwner;
+    owner: CatOwner
     images: string[];
   };
 }
