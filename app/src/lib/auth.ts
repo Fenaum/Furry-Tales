@@ -5,12 +5,18 @@ import {
   createUserWithEmailAndPassword,
 } from "firebase/auth";
 
-interface UserCredentials {
+interface LoginCredentials {
   email: string;
   password: string;
 }
 
-export async function signInUser({ email, password }: UserCredentials) {
+interface registerCredentials {
+  email: string;
+  password: string;
+  confirmPassword: string;
+}
+
+export async function signInUser({ email, password }: LoginCredentials) {
   try {
     const userCredential = await signInWithEmailAndPassword(
       auth,
@@ -24,7 +30,15 @@ export async function signInUser({ email, password }: UserCredentials) {
   }
 }
 
-export async function signUpUser({ email, password }: UserCredentials) {
+export async function signUpUser({
+  email,
+  password,
+  confirmPassword,
+}: registerCredentials) {
+  if (password !== confirmPassword) {
+    throw new Error("Passwords do not match");
+  }
+
   try {
     const userCredential = await createUserWithEmailAndPassword(
       auth,

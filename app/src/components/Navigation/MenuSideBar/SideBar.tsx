@@ -6,7 +6,7 @@ interface SideBarProps {
 }
 
 export default function SideBar({isMenuOpen}: SideBarProps) {
-    const className = isMenuOpen ? "slide-out" : "slide-in";
+    const className = isMenuOpen ? "slide-in" : "slide-out";
 
     return (
         <div className={className}>

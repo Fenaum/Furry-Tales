@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { signUpUser } from "../../../../lib/auth"; // import your signUpUser function
+import { signInUser } from "../../../../src/lib/auth"; // import your signInUser function
 
-export default async function handler(
+export default async function loginHandler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
@@ -9,7 +9,7 @@ export default async function handler(
     const { email, password } = req.body;
 
     try {
-      const user = await signUpUser({ email, password });
+      const user = await signInUser({ email, password });
       res.status(200).json({ uid: user?.uid });
     } catch (error: any) {
       res.status(500).json({ error: error.message });
