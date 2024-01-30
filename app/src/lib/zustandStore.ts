@@ -1,11 +1,9 @@
 import { create } from "zustand";
+import { getCurrentUser, getIdToken } from "./auth";
 
-type State = {
-  isOpen: boolean;
-  toggle: () => void;
-};
-
-export const useStore = create<State>((set) => ({
-  isOpen: false,
-  toggle: () => set((state) => ({isOpen: !state.isOpen})),
+const useAuthStore = create((set) => ({
+  currentUser: null,
+  idToken: null,
+  setCurrentUser: (user) => set({ currentUser: user }),
+  setIdToken: (token) => set({ idToken: token }),
 }));
