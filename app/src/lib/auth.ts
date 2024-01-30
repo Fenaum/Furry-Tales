@@ -1,8 +1,11 @@
+import { FunctionSquareIcon } from "lucide-react";
 import { auth } from "../../firebase/firebaseConfig"; // import your firebase instance
 import {
   signInWithEmailAndPassword,
   signOut,
   createUserWithEmailAndPassword,
+  onAuthStateChanged,
+  User
 } from "firebase/auth";
 
 interface LoginCredentials {
@@ -59,4 +62,21 @@ export async function signOutUser() {
     console.error("Error signing out", error);
     throw error;
   }
+}
+
+export function listenForAuthChanges(
+  callback: (user: User | null) => void
+) {
+  onAuthStateChanged(auth, callback);
+}
+
+export async function getCurrentUser(): Promise<User | null> {
+  return auth.currentUser;
+}
+export async function getIdToken(): Promise<string> {
+  const user = await getCurrentUser();
+  if (!user) {
+    throw new Error("No user is currently signed in");
+  }
+  return user.getIdToken();
 }
