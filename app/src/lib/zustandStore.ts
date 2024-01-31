@@ -1,9 +1,23 @@
 import { create } from "zustand";
 import { getCurrentUser, getIdToken } from "./auth";
 
-const useAuthStore = create((set) => ({
-  currentUser: null,
-  idToken: null,
-  setCurrentUser: (user) => set({ currentUser: user }),
-  setIdToken: (token) => set({ idToken: token }),
-}));
+async function getUser() {
+  const user = await getCurrentUser();
+  const token = await getIdToken();
+  return { user, token };
+}
+
+const useAuthStore = create((set) => {
+  return (
+    {
+      currentUser: null,
+      currentToken: null,
+      setCurrentUser: async () => {
+        const { user, token } = await getUser();
+        set({ currentUser: user, currentToken: token });
+      }
+    } 
+  )
+});
+
+export default useAuthStore;
