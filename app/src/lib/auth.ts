@@ -20,6 +20,11 @@ interface registerCredentials {
 }
 
 export async function signInUser({ email, password }: LoginCredentials) {
+  const currentUser = await getCurrentUser();
+  if (currentUser) {
+    throw new Error("User is already signed in");
+  }
+
   try {
     const userCredential = await signInWithEmailAndPassword(
       auth,
@@ -38,6 +43,11 @@ export async function signUpUser({
   password,
   confirmPassword,
 }: registerCredentials) {
+  const currentUser = await getCurrentUser();
+  if (currentUser) {
+    throw new Error("There is already a user signed in. Please log out first.");
+  }
+
   if (password !== confirmPassword) {
     throw new Error("Passwords do not match");
   }

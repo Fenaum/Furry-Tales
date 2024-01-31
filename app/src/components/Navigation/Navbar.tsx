@@ -5,7 +5,14 @@ import AppLogo from "../../../public/munchkin.svg"
 import BurgerMenu from "./BurgerMenu/BurgerMenu";
 import SideBar from "./MenuSideBar/SideBar";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import useAuthStore from "../../lib/zustandStore";
+
+interface AuthState {
+  currentUser: any; // Replace 'any' with the actual type of 'currentUser'
+  currentToken: any; // Replace 'any' with the actual type of 'currentToken'
+  setCurrentUser: () => Promise<void>;
+}
 
 interface NavbarProps {
   handleMenu: () => void;
@@ -14,6 +21,8 @@ interface NavbarProps {
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const currentUser = useAuthStore((state: AuthState) => state.currentUser);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -27,9 +36,15 @@ export default function Navbar() {
         <Link href="/">
           <AppLogo className="h-16 w-16" alt="app icon" />
         </Link>
+        {
+        !currentUser ?
         <Link href="/user/signup">
           <UserIcon className="h-12 w-12" alt="user icon" />
+        </Link> :
+        <Link href="/user/profile">
+          <img alt="user image"  className="h-12 w-12 rounded-full" />
         </Link>
+        }
       </div>
     </nav>
   );
