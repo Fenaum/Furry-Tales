@@ -21,8 +21,7 @@ interface NavbarProps {
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const currentUser = useAuthStore((state: AuthState) => state.currentUser);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
 
   const handleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
