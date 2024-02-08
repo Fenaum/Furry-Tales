@@ -7,12 +7,7 @@ import SideBar from "./MenuSideBar/SideBar";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import useAuthStore from "../../lib/zustandStore";
-
-interface AuthState {
-  currentUser: any; // Replace 'any' with the actual type of 'currentUser'
-  currentToken: any; // Replace 'any' with the actual type of 'currentToken'
-  setCurrentUser: () => Promise<void>;
-}
+import { getCurrentUser } from "../../lib/auth";
 
 interface NavbarProps {
   handleMenu: () => void;
@@ -21,7 +16,18 @@ interface NavbarProps {
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const currentUser = useAuthStore(state => state.currentUser)
+  
+  useEffect(() => {
+    const fetchUser = async () => {
+      const user = await getCurrentUser();
+      if (user) {
+        useAuthStore.setState({ currentUser: user });
+      }
+    };
 
+    fetchUser();
+  }, []);
 
   const handleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
