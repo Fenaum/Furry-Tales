@@ -1,12 +1,13 @@
 import { create } from "zustand";
 
-const useAuthStore = create((set) => {
-  return (
-    {
-      currentUser: null,
-      currentToken: null,
-    }
-  )
-});
+interface AuthState<UserType> {
+  currentUser: UserType | null;
+  setUser: (user: UserType) => void;
+}
+
+const useAuthStore = create<AuthState<any>>((set) => ({
+  currentUser: null,
+  setUser: (user) => set({ currentUser: user }),
+}));
 
 export default useAuthStore;
