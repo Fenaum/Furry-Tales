@@ -1,3 +1,5 @@
+import { db } from "../../firebase/firebaseConfig";
+import { collection } from "firebase/firestore";
 
 export interface Cat {
   id: string;
@@ -12,3 +14,5 @@ export interface Cat {
   owner: string;
   images: string[];
 }
+
+export const catsCollection = collection(db, "cats");
