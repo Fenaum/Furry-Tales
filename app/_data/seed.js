@@ -44,14 +44,46 @@ admin.initializeApp({
 var db = admin.firestore();
 function seedCats() {
     return __awaiter(this, void 0, void 0, function () {
-        var cats, batch;
+        var catsSnapshot, deletePromises, cats, batch;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
+                    console.log("Deleting all existing cats...");
+                    return [4 /*yield*/, db.collection("Cats").get()];
+                case 1:
+                    catsSnapshot = _a.sent();
+                    deletePromises = catsSnapshot.docs.map(function (doc) { return doc.ref.delete(); });
+                    return [4 /*yield*/, Promise.all(deletePromises)];
+                case 2:
+                    _a.sent();
+                    console.log("All existing cats have been deleted.");
+                    console.log("Seeding   10 new unique cats...");
                     cats = [
-                        { name: "Whiskers", breed: "Tabby", age: 2, color: "Black" },
-                        { name: "Fluffy", breed: "Siamese", age: 3, color: "White" },
-                        // ... more cats
+                        {
+                            name: "Whiskers",
+                            breed: "Tabby",
+                            age: 2,
+                            color: "Black",
+                            weight: 5,
+                            gender: "Male",
+                            personality: ["Playful", "Curious"],
+                            vaccinations: { vaccine1: true, vaccine2: false },
+                            owner: "John Doe",
+                            images: ["image1.jpg"],
+                        },
+                        {
+                            name: "Fluffy",
+                            breed: "Siamese",
+                            age: 3,
+                            color: "White",
+                            weight: 4,
+                            gender: "Female",
+                            personality: ["Affectionate", "Calm"],
+                            vaccinations: { vaccine1: true, vaccine2: true },
+                            owner: "Jane Smith",
+                            images: ["image2.jpg"],
+                        },
+                        // ... more unique cats
                     ];
                     batch = db.batch();
                     cats.forEach(function (cat, index) {
@@ -59,8 +91,9 @@ function seedCats() {
                         batch.set(catRef, cat);
                     });
                     return [4 /*yield*/, batch.commit()];
-                case 1:
+                case 3:
                     _a.sent();
+                    console.log("10 new unique cats have been seeded.");
                     return [2 /*return*/];
             }
         });
