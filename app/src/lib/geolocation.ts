@@ -1,12 +1,23 @@
-export async function getCurrentPosition(): Promise<GeolocationPosition | null> {
-  return new Promise((resolve) => {
-    navigator.geolocation.getCurrentPosition(
-      (position) => resolve(position),
-      (error) => {
-        console.error("Error getting geolocation", error);
-        resolve(null);
-      },
-      { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 }
-    );
+export async function getUserLocation(): Promise<{
+  latitude: number;
+  longitude: number;
+}> {
+  return new Promise((resolve, reject) => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          resolve({
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude,
+          });
+        },
+        (error) => {
+          reject(error);
+        }
+      );
+    } else {
+      reject(new Error("Geolocation is not supported by this browser."));
+    }
   });
 }
+  

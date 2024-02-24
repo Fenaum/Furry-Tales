@@ -13,6 +13,10 @@ export interface Cat {
   vaccinations: Record<string, boolean>;
   owner: string;
   images: string[];
+  location?: {
+    latitude: number;
+    longitude: number;
+  };
 }
 
-export const catsCollection = collection(db, "cats");
+export const catsCollection = collection(db, "Cats");
