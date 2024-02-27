@@ -1,92 +1,55 @@
-import { FunctionSquareIcon } from "lucide-react";
-import { auth } from "../../firebase/firebaseConfig"; // import your firebase instance
-import {
-  signInWithEmailAndPassword,
-  signOut,
-  createUserWithEmailAndPassword,
-  onAuthStateChanged,
-  User
-} from "firebase/auth";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { db, auth } from "../../firebase/firebaseConfig"; // import your firebase instance
+import { collection, doc, setDoc } from "firebase/firestore";
 
-interface LoginCredentials {
-  email: string;
-  password: string;
-}
-
-interface registerCredentials {
-  email: string;
-  password: string;
-  confirmPassword: string;
-}
-
-export async function signInUser({ email, password }: LoginCredentials) {
-  const currentUser = await getCurrentUser();
-  if (currentUser) {
-    throw new Error("User is already signed in");
-  }
+export async function signInWithGoogle() {
+  const provider = new GoogleAuthProvider();
 
   try {
-    const userCredential = await signInWithEmailAndPassword(
-      auth,
-      email,
-      password
-    );
-    return userCredential.user;
+    const result = await signInWithPopup(auth, provider);
+    const user = result.user;
+    console.log("User signed in:", user); // Debugging line
+
+    const userProfilesCollection = collection(db, "UserProfiles");
+    const userProfileDoc = doc(userProfilesCollection, user.uid);
+
+    console.log("Attempting to update user profile in Firestore"); // Before setDoc
+
+    await setDoc(
+      userProfileDoc,
+      {
+        id: user.uid,
+        email: user.email,
+        name: user.displayName || "",
+        profilePicture: user.photoURL || "",
+      },
+      { merge: true }
+    )
+      .then(() => {
+        console.log("User profile updated in Firestore successfully"); // Success message
+      })
+      .catch((error) => {
+        console.error("Error updating user profile in Firestore:", error); // Error handling
+      });
+
+    console.log("User profile update operation completed"); // After setDoc
+
+    return user;
   } catch (error) {
-    console.error("Error signing in with password and email", error);
+    console.error("Error signing in with Google:", error);
     throw error;
   }
 }
 
-export async function signUpUser({
-  email,
-  password,
-  confirmPassword,
-}: registerCredentials) {
-  const currentUser = await getCurrentUser();
-  if (currentUser) {
-    throw new Error("There is already a user signed in. Please log out first.");
-  }
-
-  if (password !== confirmPassword) {
-    throw new Error("Passwords do not match");
-  }
-
+export async function signOut() {
   try {
-    const userCredential = await createUserWithEmailAndPassword(
-      auth,
-      email,
-      password
-    );
-    return userCredential.user;
+    await auth.signOut();
+    console.log("User signed out");
   } catch (error) {
-    console.error("Error signing up with password and email", error);
-    throw error;
+    console.error("Error signing out:", error);
   }
 }
 
-export async function signOutUser() {
-  try {
-    await signOut(auth);
-  } catch (error) {
-    console.error("Error signing out", error);
-    throw error;
-  }
-}
-
-export function listenForAuthChanges(
-  callback: (user: User | null) => void
-) {
-  onAuthStateChanged(auth, callback);
-}
-
-export async function getCurrentUser(): Promise<User | null> {
-  return auth.currentUser;
-}
-export async function getIdToken(): Promise<string> {
-  const user = await getCurrentUser();
-  if (!user) {
-    throw new Error("No user is currently signed in");
-  }
-  return user.getIdToken();
+export function onAuthStateChanged(callback: (user: any | null) => void) {
+  return auth.onAuthStateChanged(callback);
 }

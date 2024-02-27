@@ -3,9 +3,7 @@ import { db } from "../../firebase/firebaseConfig";
 
 export interface User {
   id: string;
-  username: string;
   email: string;
-  password: string; // Note: This should be handled securely in a real application
   name: string;
   profilePicture?: string;
   bio?: string;
