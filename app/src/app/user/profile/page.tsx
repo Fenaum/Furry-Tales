@@ -1,23 +1,16 @@
-import { useRouter } from "next/navigation";  
+"use client"
 
-export default function Home() {
+import { useRouter } from "next/navigation";  
+import { signOut } from '../../../lib/auth'
+
+export default function Profile() {
       const router = useRouter();
 
     
     async function logout() {
-        const response = await fetch('/api/logout', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })  
-        const data = await response.json()
-        console.log(data)
-        if (response.status === 200) {
-            router.push('/')
-        } else {
-            alert(data.message)
-        }
+        await signOut();
+        console.log("logged out");
+        router.push("/");
     }
 
     const handleLogout = () => {

@@ -1,72 +1,32 @@
-"use client"
+"use client";
 
-import { useState } from 'react';
-import { useRouter } from "next/navigation";  
+import { useRouter } from "next/navigation";
 import "../user.css";
+import { signInWithGoogle } from "../../../lib/auth"; // Import the Google Sign-In function
 
-export default function Login() {
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
-
+export default function Register() {
   const router = useRouter();
 
-  async function login() {
-    const response = await fetch("/api/auth/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password }),
-    });
-    const data = await response.json();
-    if (response.status === 200) {
-      console.log(data)
-      router.push("/");
-    } else {
-      alert(data.message);
+  const handleSignUpWithGoogle = async () => {
+    try {
+      const user = await signInWithGoogle();
+      console.log("User signed up with Google:", user);
+      // Redirect to the home page or dashboard after successful sign-up
+      router.push("/user/profile");
+    } catch (error) {
+      console.error("Error signing up with Google:", error);
+      // Handle error, e.g., show an error message to the user
     }
-  }
-
-  const { email, password } = formData;
-
-  function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
-    setFormData({
-      ...formData,
-      [event.target.name]: event.target.value,
-    });
-  }
-  
- const handleSubmit = async (event: React.FormEvent) => {
-    event.preventDefault();
-    login();
- };
+  };
 
   return (
     <div className="form-container">
       <div className="form-card">
-        <h2 className="form-title">Log In</h2>
-        <form onSubmit={handleSubmit}>
-          <input
-            type="email"
-            className="form-input"
-            placeholder="Email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-          />
-          <input
-            type="password"
-            className="form-input"
-            placeholder="Password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-          />
-          <button className="form-button" type="submit">
-            Log In
-          </button>
-        </form>
+        <h2 className="form-title">Welome!</h2>
+        <button className="form-button" onClick={handleSignUpWithGoogle}>
+          Sign in with Google
+        </button>
       </div>
     </div>
-  )
+  );
 }

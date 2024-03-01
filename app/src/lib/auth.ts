@@ -13,7 +13,7 @@ export async function signInWithGoogle() {
     const userProfilesCollection = collection(db, "UserProfiles");
     const userProfileDoc = doc(userProfilesCollection, user.uid);
 
-    console.log("Attempting to update user profile in Firestore"); // Before setDoc
+    console.log(user.uid, "Attempting to update user profile in Firestore"); // Before setDoc
 
     await setDoc(
       userProfileDoc,
@@ -29,8 +29,10 @@ export async function signInWithGoogle() {
         console.log("User profile updated in Firestore successfully"); // Success message
       })
       .catch((error) => {
-        console.error("Error updating user profile in Firestore:", error); // Error handling
+        console.error("Error updating user profile in Firestore:", error);
+        throw error; // Rethrow the error to catch it elsewhere if needed
       });
+
 
     console.log("User profile update operation completed"); // After setDoc
 
@@ -47,6 +49,7 @@ export async function signOut() {
     console.log("User signed out");
   } catch (error) {
     console.error("Error signing out:", error);
+    throw error
   }
 }
 
