@@ -6,6 +6,9 @@ export interface User {
   email: string;
   name: string;
   profilePicture?: string;
+  role: "adopter" | "owner" | "admin";
+  age?: number;
+  gender?: "male" | "female";
   bio?: string;
   location?: {
     latitude: number;
@@ -24,6 +27,9 @@ export interface User {
   };
   dateJoined: Date;
   lastActive: Date;
+  swipes: string[];
+  matches: string[];
+  match: boolean;
 }
 
 export const userProfilesCollection = collection(db, "UserProfiles");

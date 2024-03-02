@@ -3,9 +3,17 @@
 import { useRouter } from "next/navigation";
 import "../user.css";
 import { signInWithGoogle } from "../../../lib/auth"; // Import the Google Sign-In function
+import { getAuth } from "firebase/auth";
 
 export default function Register() {
   const router = useRouter();
+  const auth = getAuth();
+  const user = auth.currentUser;
+  // If the user is already signed in, redirect to the home page or dashboard
+  if (user) {
+    router.push("/user/profile");
+  }
+  // Sign in with Google
 
   const handleSignUpWithGoogle = async () => {
     try {

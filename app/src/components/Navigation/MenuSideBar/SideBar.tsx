@@ -16,6 +16,18 @@ export default function SideBar({isMenuOpen}: SideBarProps) {
             <Link href="/about">
                 About
             </Link>
+            <Link href="/matches"> 
+                Matches
+            </Link>
+            <Link href="/messages">
+                Messages
+            </Link>
+            <Link href="/settings">
+                Settings
+            </Link>
+            <Link href="/help">
+                Support
+            </Link>
         </div>
     )
 }
