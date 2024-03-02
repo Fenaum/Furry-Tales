@@ -17,6 +17,10 @@ export interface Cat {
     latitude: number;
     longitude: number;
   };
+  swipes: string[];
+  matches: string[];
+  match: boolean;
+  bio: string;
 }
 
 export const catsCollection = collection(db, "Cats");
