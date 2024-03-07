@@ -1,5 +1,4 @@
 import { db } from "../../firebase/firebaseConfig";
-import { collection } from "firebase/firestore";
 
 export interface Cat {
   id: string;
@@ -23,4 +22,3 @@ export interface Cat {
   bio: string;
 }
 
-export const catsCollection = collection(db, "Cats");

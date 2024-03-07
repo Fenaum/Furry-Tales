@@ -1,13 +1,16 @@
+// store.ts
 import { create } from "zustand";
 
-interface AuthState<UserType> {
-  currentUser: UserType | null;
-  setUser: (user: UserType) => void;
+// Define the state interface
+interface StoreState {
+  isMenuOpen: boolean;
+  toggleMenu: () => void;
 }
 
-const useAuthStore = create<AuthState<any>>((set) => ({
-  currentUser: null,
-  setUser: (user) => set({ currentUser: user }),
+// Use the interface in your Zustand store
+const useStore = create<StoreState>((set) => ({
+  isMenuOpen: false,
+  toggleMenu: () => set((state) => ({ isMenuOpen: !state.isMenuOpen })),
 }));
 
-export default useAuthStore;
+export default useStore;

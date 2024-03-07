@@ -9,3 +9,18 @@
  transform: translateX(-100%);
  display: none;
 }
+
+/* Make side-bar fixed on the left */
+
+.side-bar {
+ left:  0;
+ top: 0;
+ bottom: 0;
+ display: flex;
+ flex-direction: column;
+ border-radius: 25px;
+ border: red solid;
+ padding: 2rem;
+ line-height: 2rem;
+ text-align: center;
+}
