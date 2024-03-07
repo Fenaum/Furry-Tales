@@ -2,6 +2,9 @@
 
 import { useEffect, useState } from "react";
 import { onAuthStateChanged } from "../../lib/auth";
+import SideBar from "../Navigation/MenuSideBar/SideBar";
+import useStore from "../../lib/zustandStore";
+import CatCard from "../../components/CatCard/Card"
 
 // Define the type for the user object
 interface User {
@@ -12,8 +15,9 @@ interface User {
   // Add other fields as needed
 }
 
-const MyComponent = () => {
+const Home = () => {
   const [user, setUser] = useState<User | null>(null);
+  const { isMenuOpen, toggleMenu } = useStore();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(setUser);
@@ -22,11 +26,20 @@ const MyComponent = () => {
     return () => unsubscribe();
   }, []);
 
-  if (user) {
-    return <div>Welcome, {user.email}!</div>;
-  } else {
-    return <div>Please log in.</div>;
-  }
+  return (
+    <div className="flex">
+      <SideBar />
+      <CatCard />
+    </div>
+  );
 };
 
-export default MyComponent;
+// const Home = () => {
+//   if (user) {
+//     return <div>Welcome, {user.email}!</div>;
+//   } else {
+//     return <div>Please log in.</div>;
+//   }
+// };
+
+export default Home;
