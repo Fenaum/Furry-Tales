@@ -10,12 +10,6 @@ export default function SideBar() {
     return (
         <div className={className}>
             <div className="side-bar">
-                <Link href="/">
-                    Home
-                </Link>
-                <Link href="/about">
-                    About
-                </Link>
                 <Link href="/matches"> 
                     Matches
                 </Link>
