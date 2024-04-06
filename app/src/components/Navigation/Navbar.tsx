@@ -1,32 +1,34 @@
-"use client"
-
-import UserIcon from "../../../public/user-svgrepo-com.svg";
-import AppLogo from "../../../public/munchkin.svg"
-import BurgerMenu from "./BurgerMenu/BurgerMenu";
+import SideBar from ".//MenuSideBar/SideBar"
+import Icons from "../../../constants"
 import Link from "next/link";
-import useStore from "../../lib/zustandStore";
+import Image from "next/image";
+
 import "./Navbar.css"
 
-
-export default function Navbar() {
- const { isMenuOpen, toggleMenu } = useStore();
-
-
-  const handleMenu = () => {
-    toggleMenu();
-  };
-
+const Navbar = () => {
   return (
     <nav>
-      <div className="flex items-center justify-between ml-1 mr-1">
-        <BurgerMenu handleMenu={handleMenu} isMenuOpen={isMenuOpen} />
-        <Link href="/">
-          <AppLogo className="h-16 w-16" alt="app icon" />
-        </Link>
-        <Link href="/user/signin">
-          <UserIcon className="h-12 w-12" alt="user icon" />
-        </Link> 
-      </div>
+      <Link href="/">
+        <Image src={Icons.logo} alt="Logo" className="h-24 w-24 rounded-full" />
+      </Link>
+      <ul>
+        <li>
+          <Link href="/about">About</Link>
+        </li>
+        <li>
+          <Link href="/contact">Contact Us</Link>
+        </li>
+        <li>
+          <Link href="/blog">Blog</Link>
+        </li>
+        <li>
+          <Link href="/user">
+            <Icons.userAvatar className="h-10 w-10" />
+          </Link>
+        </li>
+      </ul>
     </nav>
   );
 }
+
+export default Navbar

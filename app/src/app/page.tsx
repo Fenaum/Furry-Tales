@@ -1,5 +1,5 @@
 import Home from "../components/Home/Home";
-import Test from "../components/Test/Test"
+import SideBar from "@/components/Navigation/MenuSideBar/SideBar";
 
 export default async function Page() {
   return (
