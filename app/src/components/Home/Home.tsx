@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { onAuthStateChanged } from "../../lib/auth";
-import SideBar from "../Navigation/MenuSideBar/SideBar";
 import useStore from "../../lib/zustandStore";
 import CatCard from "../../components/CatCard/Card"
 
@@ -28,7 +27,6 @@ const Home = () => {
 
   return (
     <div className="flex">
-      <SideBar />
       <CatCard />
     </div>
   );
