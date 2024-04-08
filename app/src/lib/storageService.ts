@@ -22,4 +22,4 @@ async function saveCatPhotoURL(catId: string, photoURL: string) {
   await setDoc(catRef, { photoURL }, { merge: true });
 }
 
-export { uploadCatPhoto, saveCatPhotoURL } ;
+export { uploadCatPhoto, saveCatPhotoURL };
