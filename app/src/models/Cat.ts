@@ -21,4 +21,3 @@ export interface Cat {
   match: boolean;
   bio: string;
 }
-

@@ -33,7 +33,6 @@ export async function signInWithGoogle() {
         throw error; // Rethrow the error to catch it elsewhere if needed
       });
 
-
     console.log("User profile update operation completed"); // After setDoc
 
     return user;
@@ -49,7 +48,7 @@ export async function signOut() {
     console.log("User signed out");
   } catch (error) {
     console.error("Error signing out:", error);
-    throw error
+    throw error;
   }
 }
 

@@ -1,9 +1,9 @@
-import SideBar from ".//MenuSideBar/SideBar"
-import Icons from "../../../constants"
+import SideBar from "./MenuSideBar/SideBar";
+import Icons from "../../../constants";
 import Link from "next/link";
 import Image from "next/image";
 
-import "./Navbar.css"
+import "./Navbar.css";
 
 const Navbar = () => {
   return (
@@ -22,13 +22,13 @@ const Navbar = () => {
           <Link href="/blog">Blog</Link>
         </li>
         <li>
-          <Link href="/user">
+          <Link href="/user/signin">
             <Icons.userAvatar className="h-10 w-10" />
           </Link>
         </li>
       </ul>
     </nav>
   );
-}
+};
 
-export default Navbar
+export default Navbar;

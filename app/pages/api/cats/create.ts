@@ -16,9 +16,7 @@ export default async function handler(
         .status(200)
         .json({ message: "Cat created successfully.", id: docRef.id });
     } catch (error) {
-      res
-        .status(500)
-        .json({ error: "Error creating cat."});
+      res.status(500).json({ error: "Error creating cat." });
     }
   } else {
     res.setHeader("Allow", ["POST"]);

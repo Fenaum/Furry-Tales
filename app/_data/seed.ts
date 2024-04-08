@@ -26,7 +26,10 @@ async function seedCats() {
       personality: ["Playful", "Curious"],
       vaccinations: { vaccine1: true, vaccine2: false },
       owner: "John Doe",
-      images: ["image1.jpg"],
+      images: [
+        "gs://furry-tales-35c76.appspot.com/CatImages/tabby-cat.jpeg",
+        "gs://furry-tales-35c76.appspot.com/CatImages/tabby-cat2.jpeg",
+      ],
     },
     {
       name: "Fluffy",
@@ -38,7 +41,10 @@ async function seedCats() {
       personality: ["Affectionate", "Calm"],
       vaccinations: { vaccine1: true, vaccine2: true },
       owner: "Jane Smith",
-      images: ["image2.jpg"],
+      images: [
+        "gs://furry-tales-35c76.appspot.com/CatImages/siamese-cat.jpeg",
+        "gs://furry-tales-35c76.appspot.com/CatImages/siamese-cat2.jpeg",
+      ],
     },
     {
       name: "Sparkle",
@@ -50,7 +56,10 @@ async function seedCats() {
       personality: ["Energetic", "Curious"],
       vaccinations: { vaccine1: true, vaccine2: true },
       owner: "Alice",
-      images: ["image3.jpg"],
+      images: [
+        "gs://furry-tales-35c76.appspot.com/CatImages/bengal-ca.jpeg",
+        "gs://furry-tales-35c76.appspot.com/CatImages/bengal-cat2.jpeg",
+      ],
     },
     {
       name: "Bolt",
@@ -62,7 +71,10 @@ async function seedCats() {
       personality: ["Lazy", "Friendly"],
       vaccinations: { vaccine1: true, vaccine2: true },
       owner: "Bob",
-      images: ["image4.jpg"],
+      images: [
+        "gs://furry-tales-35c76.appspot.com/CatImages/main-coon-cat.webp",
+        "gs://furry-tales-35c76.appspot.com/CatImages//main-coon-cat2.webp",
+      ],
     },
     {
       name: "Patches",
@@ -74,7 +86,10 @@ async function seedCats() {
       personality: ["Lazy", "Affectionate"],
       vaccinations: { vaccine1: true, vaccine2: true },
       owner: "Charlie",
-      images: ["image21.jpg"],
+      images: [
+        "gs://furry-tales-35c76.appspot.com/CatImages/ragdoll-cat.jpeg",
+        "gs://furry-tales-35c76.appspot.com/CatImages/ragdoll-cat2.jpeg",
+      ],
     },
     {
       name: "Daisy",
@@ -86,7 +101,10 @@ async function seedCats() {
       personality: ["Playful", "Curious"],
       vaccinations: { vaccine1: true, vaccine2: true },
       owner: "Diana",
-      images: ["image22.jpg"],
+      images: [
+        "gs://furry-tales-35c76.appspot.com/CatImages/sphynx-cat.jpeg",
+        "gs://furry-tales-35c76.appspot.com/CatImages//sphynx-cat2.jpeg",
+      ],
     },
     {
       name: "Misty",
@@ -110,7 +128,10 @@ async function seedCats() {
       personality: ["Affectionate", "Calm"],
       vaccinations: { vaccine1: true, vaccine2: true },
       owner: "Frank",
-      images: ["image24.jpg"],
+      images: [
+        "gs://furry-tales-35c76.appspot.com/CatImages/persian-cat.webp",
+        "gs://furry-tales-35c76.appspot.com/CatImages/persian-cat2.webp",
+      ],
     },
     {
       name: "Snowball",
@@ -122,7 +143,7 @@ async function seedCats() {
       personality: ["Playful", "Curious"],
       vaccinations: { vaccine1: true, vaccine2: true },
       owner: "Grace",
-      images: ["image25.jpg"],
+      images: ["gs://furry-tales-35c76.appspot.com/CatImages/snowshoe-cat.jpeg", "gs://furry-tales-35c76.appspot.com/CatImages/snowshow-cat2.jpeg"],
     },
     {
       name: "Tigger",
@@ -147,7 +168,7 @@ async function seedCats() {
       vaccinations: { vaccine1: true, vaccine2: true },
       owner: "Ivy",
       images: ["image27.jpg"],
-    }
+    },
     // ... more unique cats
   ];
 

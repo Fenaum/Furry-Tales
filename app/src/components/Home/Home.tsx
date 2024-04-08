@@ -2,8 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { onAuthStateChanged } from "../../lib/auth";
-import useStore from "../../lib/zustandStore";
-import CatCard from "../../components/CatCard/Card"
+import CardContainer from "../ui/CatCard/CardContainer";
 
 // Define the type for the user object
 interface User {
@@ -16,7 +15,6 @@ interface User {
 
 const Home = () => {
   const [user, setUser] = useState<User | null>(null);
-  const { isMenuOpen, toggleMenu } = useStore();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(setUser);
@@ -27,7 +25,7 @@ const Home = () => {
 
   return (
     <div className="flex">
-      <CatCard />
+      <CardContainer />
     </div>
   );
 };

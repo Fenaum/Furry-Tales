@@ -3,7 +3,6 @@ import { db } from "../../../firebase/firebaseConfig";
 import { doc, getDoc } from "firebase/firestore";
 import { Cat } from "../../../src/models/Cat";
 
-
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
