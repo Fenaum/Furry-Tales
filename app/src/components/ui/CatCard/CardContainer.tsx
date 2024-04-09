@@ -1,14 +1,16 @@
 // components/ui/CardContainer/CardContainer.tsx
-"use client"
+"use client";
 
 import { useState, useEffect } from "react";
 import { Cat } from "../../../models/Cat";
 import Card from "./Card";
+import CatDetails from "./CatDetails/CatDetails";
 
 const CardContainer = () => {
   const [cats, setCats] = useState<Cat[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [currentCatIndex, setCurrentCatIndex] = useState(0);
+  const [moreInfo, setMoreInfo] = useState(false);
 
   async function getCat() {
     const response = await fetch("/api/cats/read");
@@ -24,10 +26,20 @@ const CardContainer = () => {
 
   function handleLike() {
     // Implement your logic here
+    setMoreInfo(!moreInfo);
   }
 
-  function handleDisLike() {
+  function handleClose() {
     // Implement your logic here
+    setMoreInfo(false);
+  }
+
+  function handlePrevious() {
+    if (currentCatIndex === 0) {
+      setCurrentCatIndex(cats.length - 1);
+    } else {
+      setCurrentCatIndex(currentCatIndex - 1);
+    }
   }
 
   function nextCat() {
@@ -37,8 +49,6 @@ const CardContainer = () => {
       setCurrentCatIndex(currentCatIndex + 1);
     }
   }
-
-
   return (
     <div className="cat-container">
       {cats.length > 0 && !isLoading ? (
@@ -47,8 +57,11 @@ const CardContainer = () => {
             cat={cats[currentCatIndex]}
             onLike={handleLike}
             onNext={nextCat}
-            onDisLike={handleDisLike}
+            handlePrevious={handlePrevious}
           />
+          {moreInfo && (
+            <CatDetails onClose={handleClose} cat={cats[currentCatIndex]} />
+          )}
         </>
       ) : (
         <div>

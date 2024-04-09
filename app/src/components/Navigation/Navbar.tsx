@@ -13,17 +13,24 @@ const Navbar = () => {
       </Link>
       <ul>
         <li>
-          <Link href="/about">About</Link>
+          <Link href="/">HOME</Link>
         </li>
         <li>
-          <Link href="/contact">Contact Us</Link>
+          <Link href="/about">ABOUT US</Link>
         </li>
         <li>
-          <Link href="/blog">Blog</Link>
+          <Link href="/blog">BLOG</Link>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <Link href={"/notifications"}>
+            <Icons.BellIcon className="h-8 w-8" />
+          </Link>
         </li>
         <li>
           <Link href="/user/signin">
-            <Icons.userAvatar className="h-10 w-10" />
+            <Icons.userAvatar className="h-8 w-8" />
           </Link>
         </li>
       </ul>

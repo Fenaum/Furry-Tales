@@ -3,14 +3,15 @@
     background-color: #fff;
     border-radius: 10px;
     overflow: hidden;   
-    height: 30rem;
-    width: 85vh;
+    height: 40vh;
+    width: 80vw;
 }
 
 .hero-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
     border-radius: 10px 10px 0 0;
     position: absolute;
 }
@@ -36,7 +37,7 @@
     z-index: 1;
     color: orange;
     font-weight: lighter;
-    text-shadow: -1px -1px 0 rgba(255, 255, 255, 0.2), 1px -1px 0 rgba(255, 255, 255, 0.5), -1px 1px 0 rgba(255, 255, 255, 0.2), 1px 1px 0 rgba(255, 255, 255, 0.2);
+    /* text-shadow: -1px -1px 0 rgba(255, 255, 255, 0.2), 1px -1px 0 rgba(255, 255, 255, 0.5), -1px 1px 0 rgba(255, 255, 255, 0.2), 1px 1px 0 rgba(255, 255, 255, 0.2); */
 }
 
 .hero-content h4 {

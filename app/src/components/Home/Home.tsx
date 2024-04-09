@@ -25,10 +25,16 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="m-10 flex-col">
-      <h1 className="text-2xl font-bold mb-5">Welcome to Furry Tale!</h1>
+    <div className="flex-col mx-auto">
+      <h1 className="text-2xl font-light mb-5">Welcome to Furry Tale!</h1>
       <HeroCard />
-      <CardContainer />
+      <div className="flex my-10">
+        <div>
+          <h2 className="text-xl font-light mb-5">Featured Cats</h2>
+          <p>This section will display a list of featured cats from the database.</p>
+        </div>
+        <CardContainer />
+      </div>
     </div>
   );
 };

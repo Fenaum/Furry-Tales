@@ -9,6 +9,9 @@ import fowardIcon from "../public/icons/forward-icon.svg"
 import disLikeIcon from "../public/icons/cross-circle-svgrepo-com.svg"
 import likeIcon from "../public/Icons/like.svg"
 import backwardIcon from "../public/icons/backward.svg"
+import BellIcon from "../public/icons/bell-svgrepo-com.svg"
+import catIcon from "../public/Icons/cat-fill-svgrepo-com.svg"
+import commnuicationIcon from "../public/Icons/headphones-alt-2-svgrepo-com.svg"
 
 export default {
   logo,
@@ -21,5 +24,8 @@ export default {
   disLikeIcon,
   likeIcon,
   backwardIcon,
-  heroBanner
+  heroBanner,
+  BellIcon,
+  catIcon,
+  commnuicationIcon
 };
