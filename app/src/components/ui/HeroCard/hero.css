@@ -1,0 +1,57 @@
+.hero-card {
+    position: relative;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;   
+    height: 30rem;
+    width: 85vh;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+    position: absolute;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* This keeps the content vertically centered */
+    align-items: flex-start; /* This aligns the content to the left */
+    padding: 2rem;
+    z-index: 1;
+    position: absolute;
+    top: 0; /* Ensure it's positioned at the top */
+    left: 0; /* Ensure it's positioned at the left */
+    right: 0; /* Ensure it's positioned at the right */
+    bottom: 0; /* Ensure it's positioned at the bottom */
+    margin: auto; /* This should center the content horizontally */
+}
+
+.hero-content > h4,
+.hero-content > h1,
+.hero-content > p {
+    z-index: 1;
+    color: orange;
+    font-weight: lighter;
+    text-shadow: -1px -1px 0 rgba(255, 255, 255, 0.2), 1px -1px 0 rgba(255, 255, 255, 0.5), -1px 1px 0 rgba(255, 255, 255, 0.2), 1px 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.hero-content h4 {
+    font-size: 2rem;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+}
+
+.hero-content P {
+    font-size: 1rem;
+    
+}
+
+.btn-container {
+    z-index: 1;
+}
