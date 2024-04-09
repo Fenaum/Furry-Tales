@@ -69,10 +69,7 @@ function seedCats() {
                             personality: ["Playful", "Curious"],
                             vaccinations: { vaccine1: true, vaccine2: false },
                             owner: "John Doe",
-                            images: [
-                                "gs://furry-tales-35c76.appspot.com/CatImages/tabby-cat.jpeg",
-                                "gs://furry-tales-35c76.appspot.com/CatImages/tabby-cat2.jpeg",
-                            ],
+                            images: ["/images/tabby-cat.jpeg", "/images/tabby-cat2.jpeg"],
                         },
                         {
                             name: "Fluffy",
@@ -85,8 +82,8 @@ function seedCats() {
                             vaccinations: { vaccine1: true, vaccine2: true },
                             owner: "Jane Smith",
                             images: [
-                                "gs://furry-tales-35c76.appspot.com/CatImages/siamese-cat.jpeg",
-                                "gs://furry-tales-35c76.appspot.com/CatImages/siamese-cat2.jpeg",
+                                "/images/siamese-cat.webp",
+                                "/images/siamese-cat2.jpeg",
                             ],
                         },
                         {
@@ -100,8 +97,7 @@ function seedCats() {
                             vaccinations: { vaccine1: true, vaccine2: true },
                             owner: "Alice",
                             images: [
-                                "gs://furry-tales-35c76.appspot.com/CatImages/bengal-ca.jpeg",
-                                "gs://furry-tales-35c76.appspot.com/CatImages/bengal-cat2.jpeg",
+                                "/images/bengal-ca.jpeg", "/images/bengal-cat2.jpeg",
                             ],
                         },
                         {
@@ -115,8 +111,7 @@ function seedCats() {
                             vaccinations: { vaccine1: true, vaccine2: true },
                             owner: "Bob",
                             images: [
-                                "gs://furry-tales-35c76.appspot.com/CatImages/main-coon-cat.webp",
-                                "gs://furry-tales-35c76.appspot.com/CatImages//main-coon-cat2.webp",
+                                "/images/main-coon-cat2.webp", "/images/maine-coon-cat.webp",
                             ],
                         },
                         {
@@ -130,8 +125,7 @@ function seedCats() {
                             vaccinations: { vaccine1: true, vaccine2: true },
                             owner: "Charlie",
                             images: [
-                                "gs://furry-tales-35c76.appspot.com/CatImages/ragdoll-cat.jpeg",
-                                "gs://furry-tales-35c76.appspot.com/CatImages/ragdoll-cat2.jpeg",
+                                "/images/ragdoll-cat.jpeg", "/images/ragdoll-cat2.jpeg",
                             ],
                         },
                         {
@@ -145,8 +139,7 @@ function seedCats() {
                             vaccinations: { vaccine1: true, vaccine2: true },
                             owner: "Diana",
                             images: [
-                                "gs://furry-tales-35c76.appspot.com/CatImages/sphynx-cat.jpeg",
-                                "gs://furry-tales-35c76.appspot.com/CatImages//sphynx-cat2.jpeg",
+                                "/images/sphynx-cat.jpeg", "/images/sphynxcat-2.webp",
                             ],
                         },
                         {
@@ -159,7 +152,7 @@ function seedCats() {
                             personality: ["Independent", "Lazy"],
                             vaccinations: { vaccine1: true, vaccine2: true },
                             owner: "Eva",
-                            images: ["image23.jpg"],
+                            images: ["/images/persian-cat.webp", "/images/persian-cat2.jpeg"]
                         },
                         {
                             name: "Rex",
@@ -171,10 +164,7 @@ function seedCats() {
                             personality: ["Affectionate", "Calm"],
                             vaccinations: { vaccine1: true, vaccine2: true },
                             owner: "Frank",
-                            images: [
-                                "gs://furry-tales-35c76.appspot.com/CatImages/persian-cat.webp",
-                                "gs://furry-tales-35c76.appspot.com/CatImages/persian-cat2.webp",
-                            ],
+                            images: [],
                         },
                         {
                             name: "Snowball",
@@ -186,7 +176,9 @@ function seedCats() {
                             personality: ["Playful", "Curious"],
                             vaccinations: { vaccine1: true, vaccine2: true },
                             owner: "Grace",
-                            images: ["gs://furry-tales-35c76.appspot.com/CatImages/snowshoe-cat.jpeg", "gs://furry-tales-35c76.appspot.com/CatImages/snowshow-cat2.jpeg"],
+                            images: [
+                                "/images/snowshoe-cat.jpeg", "/images/snowshow-cat2.jpeg",
+                            ],
                         },
                         {
                             name: "Tigger",
@@ -198,7 +190,7 @@ function seedCats() {
                             personality: ["Energetic", "Friendly"],
                             vaccinations: { vaccine1: true, vaccine2: true },
                             owner: "Harry",
-                            images: ["image26.jpg"],
+                            images: [""],
                         },
                         {
                             name: "Luna",
@@ -210,7 +202,7 @@ function seedCats() {
                             personality: ["Affectionate", "Calm"],
                             vaccinations: { vaccine1: true, vaccine2: true },
                             owner: "Ivy",
-                            images: ["image27.jpg"],
+                            images: [""],
                         },
                         // ... more unique cats
                     ];

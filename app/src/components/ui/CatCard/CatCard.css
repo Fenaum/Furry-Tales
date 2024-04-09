@@ -1,0 +1,67 @@
+/* CatCard.css */
+.cat-card {
+ display: grid;
+ grid-template-columns: 1fr;
+ grid-template-rows: auto auto auto auto auto auto; /* Adjusted to have three rows */
+ gap: 1rem;
+ border: 1px solid #ccc;
+ border-radius: 10px;
+ padding: 1rem;
+ width: 20rem;
+ height: 30rem;
+ margin: auto;
+ position: relative; /* Needed for absolute positioning of children */
+ background-color:azure;
+}
+
+.image-container {
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 85%; /* Image takes up 75% of the card */
+ overflow: hidden; /* Ensures the image doesn't overflow its container */
+}
+
+.card-image {
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+ border-radius: 10px 10px 0 0; /* Match the border-radius of the card */
+}
+
+.card-details {
+ grid-row: 5; /* Details take up the second row */
+ display: flex;
+ justify-content: space-between;
+ align-items: end;
+ gap: 0.5rem;
+ border-radius: 0 0 10px 10px; /* Match the border-radius of the card */
+ font-size: .9rem;
+ color: white;
+ z-index: 1;
+}
+
+.card-buttons {
+ grid-row: 6; 
+ display: flex;
+ justify-content: space-around;
+ align-items: center;
+ gap: 0.5rem;
+ z-index: 1;
+}
+
+button {
+ color: white;
+ border: none;
+ border-radius: 5px;
+ padding: 0.5rem 1rem;
+ font-size: 1rem;
+ cursor: pointer;
+ height: 3rem;
+ align-self: end;
+
+}
+
+button:hover {
+}
