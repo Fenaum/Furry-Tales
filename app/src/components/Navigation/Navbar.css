@@ -3,8 +3,8 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
-    background-color: rgba(231, 231, 231, 0.256);
-    color: #fff;
+    background-color: rgb(255, 255, 255);
+    color: #ededed;
     margin: 0;
 }
 

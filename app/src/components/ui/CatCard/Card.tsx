@@ -8,11 +8,11 @@ import Icons from "../../../../constants"
 interface CardProps {
   cat: Cat;
   onLike: () => void;
-  onDisLike: () => void;
+  handlePrevious: () => void;
   onNext: () => void;
 }
 
-const Card: React.FC<CardProps> = ({ cat, onLike, onDisLike, onNext }) => {
+const Card: React.FC<CardProps> = ({ cat, onLike, handlePrevious, onNext }) => {
   return (
     <div className="cat-card">
       <div className="image-container">
@@ -26,16 +26,18 @@ const Card: React.FC<CardProps> = ({ cat, onLike, onDisLike, onNext }) => {
         />
       </div>
       <div className="card-details">
-        <h2>{cat.name}, {cat.age}</h2>
+        <h2>
+          {cat.name}, {cat.age}
+        </h2>
         <p>
           {cat.gender} {cat.breed}
         </p>
       </div>
       <div className="card-buttons">
-        <button onClick={onDisLike}>
+        <button onClick={handlePrevious}>
           <Icons.backwardIcon className="h-8 w-8" />
         </button>
-        <button onClick={onLike}>
+        <button onClick={onLike} className="mb-2">
           <Icons.likeIcon className="h-12 w-12" />
         </button>
         <button onClick={onNext}>

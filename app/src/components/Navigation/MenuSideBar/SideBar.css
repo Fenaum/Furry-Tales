@@ -6,14 +6,14 @@
  gap: 1rem;
  padding: 1rem;
  background-color: #ffffff; /* Light background */
- box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Enhanced shadow for depth */
- border-radius: 10px; /* Rounded corners */
  width: 250px; /* Fixed width for a minimal look */
  transition: transform 0.3s ease-in-out; /* Smooth transition for slide-in/out */
  top: 0; /* Align to the top */
  left: 0; /* Align to the left */
  height: 100vh; /* Full viewport height */
  overflow-y: auto; /* Enable scrolling if content overflows */
+box-shadow: 2px 0 4px -3px #888;
+
 }
 
 .slide-in {

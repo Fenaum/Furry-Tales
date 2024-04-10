@@ -1,0 +1,20 @@
+/* testimonies.css */
+
+.testimonies {
+ /* Add a subtle background gradient for a modern look */
+ background: linear-gradient(to left, #f2f2f2, #ffffff);
+}
+
+.testimony {
+ /* Add a hover effect to the testimonial cards */
+ transition: transform 0.3s ease;
+}
+
+.testimony:hover {
+ transform: scale(1.05); /* Slightly enlarge the card on hover */
+}
+
+.testimony p {
+ /* Add a subtle text shadow for a more polished look */
+ text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
