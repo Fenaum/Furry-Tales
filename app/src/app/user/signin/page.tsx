@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import "../user.css";
-import { signInWithGoogle } from "../../../lib/auth"; // Import the Google Sign-In function
+import { signInWithGoogle } from "../../../utils/auth"; // Import the Google Sign-In function
 import { getAuth } from "firebase/auth";
 
 export default function Register() {

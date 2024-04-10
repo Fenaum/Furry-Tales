@@ -1,16 +1,14 @@
-"use client"
+"use client";
 
 import UserIcon from "../../../public/user-svgrepo-com.svg";
-import AppLogo from "../../../public/munchkin.svg"
+import AppLogo from "../../../public/munchkin.svg";
 import BurgerMenu from "./BurgerMenu/BurgerMenu";
 import Link from "next/link";
-import useStore from "../../lib/zustandStore";
-import "./Navbar.css"
-
+import useStore from "../../utils/zustandStore";
+import "./Navbar.css";
 
 export default function Navbar() {
- const { isMenuOpen, toggleMenu } = useStore();
-
+  const { isMenuOpen, toggleMenu } = useStore();
 
   const handleMenu = () => {
     toggleMenu();
@@ -25,7 +23,7 @@ export default function Navbar() {
         </Link>
         <Link href="/user/signin">
           <UserIcon className="h-12 w-12" alt="user icon" />
-        </Link> 
+        </Link>
       </div>
     </nav>
   );

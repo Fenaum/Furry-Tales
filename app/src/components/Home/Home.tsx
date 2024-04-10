@@ -1,11 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { onAuthStateChanged } from "../../lib/auth";
+import { onAuthStateChanged } from "../../utils/auth";
 import CardContainer from "../ui/CatCard/CardContainer";
 import HeroCard from "../ui/HeroCard/HeroCard";
 import Testimonies from "../Testimonies/Testimonies";
-import "./home.css"
+import "./home.css";
 
 // Define the type for the user object
 interface User {

@@ -1,9 +1,8 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { signOut } from "../../../lib/auth";
+import { signOut } from "../../../utils/auth";
 import { getAuth } from "firebase/auth";
-
 
 export default function Profile() {
   const auth = getAuth();
@@ -40,20 +39,20 @@ export default function Profile() {
     logout();
   };
 
-return (
- <>
-    {user && (
-      <div>
+  return (
+    <>
+      {user && (
         <div>
-          <h1>Profile</h1>
-          <p>User ID: {user.uid}</p>
-          <p>Email: {user.email}</p>
-          <p>Display name: {user.displayName}</p>
-          <p>Photo URL: {user.photoURL}</p>
+          <div>
+            <h1>Profile</h1>
+            <p>User ID: {user.uid}</p>
+            <p>Email: {user.email}</p>
+            <p>Display name: {user.displayName}</p>
+            <p>Photo URL: {user.photoURL}</p>
+          </div>
+          <button onClick={handleLogout}>Log out</button>
         </div>
-        <button onClick={handleLogout}>Log out</button>
-      </div>
-    )}
- </>
-);
-} 
+      )}
+    </>
+  );
+}
