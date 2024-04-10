@@ -1,6 +1,6 @@
 import Link from "next/link";
 import "./SideBar.css";
-import useStore from "../../../lib/zustandStore";
+import useStore from "../../../utils/zustandStore";
 
 export default function SideBar() {
   const { isMenuOpen, toggleMenu } = useStore();
