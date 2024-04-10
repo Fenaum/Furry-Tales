@@ -37,7 +37,7 @@ const Card: React.FC<CardProps> = ({ cat, onLike, handlePrevious, onNext }) => {
         <button onClick={handlePrevious}>
           <Icons.backwardIcon className="h-8 w-8" />
         </button>
-        <button onClick={onLike}>
+        <button onClick={onLike} className="mb-2">
           <Icons.likeIcon className="h-12 w-12" />
         </button>
         <button onClick={onNext}>

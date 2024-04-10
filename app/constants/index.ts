@@ -12,6 +12,8 @@ import backwardIcon from "../public/icons/backward.svg"
 import BellIcon from "../public/icons/bell-svgrepo-com.svg"
 import catIcon from "../public/Icons/cat-fill-svgrepo-com.svg"
 import commnuicationIcon from "../public/Icons/headphones-alt-2-svgrepo-com.svg"
+import previous from "../public/icons/previous.svg"
+import next from "../public/icons/next.svg"
 
 export default {
   logo,
@@ -27,5 +29,7 @@ export default {
   heroBanner,
   BellIcon,
   catIcon,
-  commnuicationIcon
+  commnuicationIcon,
+  previous,
+  next
 };

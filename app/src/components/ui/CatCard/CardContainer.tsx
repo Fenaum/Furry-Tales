@@ -50,7 +50,7 @@ const CardContainer = () => {
     }
   }
   return (
-    <div className="cat-container">
+    <div className="cat-container mx-20">
       {cats.length > 0 && !isLoading ? (
         <>
           <Card

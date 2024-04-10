@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { onAuthStateChanged } from "../../lib/auth";
 import CardContainer from "../ui/CatCard/CardContainer";
 import HeroCard from "../ui/HeroCard/HeroCard";
+import Testimonies from "../Testimonies/Testimonies";
+import "./home.css"
 
 // Define the type for the user object
 interface User {
@@ -25,16 +27,25 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="flex-col mx-auto">
-      <h1 className="text-2xl font-light mb-5">Welcome to Furry Tale!</h1>
+    <div className="flex-col mx-auto justify-center items-center">
+      <h1 className="text-2xl font-light mb-5 mx-5">Welcome to Furry Tale!</h1>
       <HeroCard />
-      <div className="flex my-10">
-        <div>
-          <h2 className="text-xl font-light mb-5">Featured Cats</h2>
-          <p>This section will display a list of featured cats from the database.</p>
+      <div className="flex my-10 justify-around items-center">
+        <div className="promotion mx-20">
+          <h2 className="text-xl font-light mb-5">
+            Explore Your Favorite Cats
+          </h2>
+          <p>
+            Discover your purr-fect match by connecting with reputable breeders
+            in your area. Whether you're searching for a playful kitten or a
+            cuddly companion, Furry Tale brings you closer to finding the ideal
+            furry friend to enrich your life.
+          </p>
+          <button className="btn btn-primary mt-5">Explore</button>
         </div>
         <CardContainer />
       </div>
+      <Testimonies />
     </div>
   );
 };
