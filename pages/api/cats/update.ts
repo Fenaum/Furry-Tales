@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { db } from "../../../firebase/firebaseConfig";
+import { db } from "../../../src/utils/firebase/firebaseConfig";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 
 // define API Route

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import "./SideBar.css";
+import "./sideBar.css";
 import Icons from "../../../../constants";
 
 export default function SideBar() {

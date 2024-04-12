@@ -1,6 +1,6 @@
 // Import necessary modules and types
 import { NextApiRequest, NextApiResponse } from "next";
-import { db } from "../../../firebase/firebaseConfig";
+import { db } from "../../../src/utils/firebase/firebaseConfig"
 import { deleteDoc, doc } from "firebase/firestore";
 
 // Define the API route handler
