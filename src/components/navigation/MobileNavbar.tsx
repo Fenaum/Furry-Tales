@@ -2,7 +2,7 @@
 
 import UserIcon from "../../../public/user-svgrepo-com.svg";
 import AppLogo from "../../../public/munchkin.svg";
-import BurgerMenu from "./BurgerMenu/BurgerMenu";
+import BurgerMenu from "./burgerMenu/BurgerMenu";
 import Link from "next/link";
 import useStore from "../../utils/zustandStore";
 import "./Navbar.css";

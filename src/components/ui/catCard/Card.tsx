@@ -2,7 +2,7 @@
 import React from "react";
 import { Cat } from "../../../models/Cat";
 import Image from "next/image";
-import "./CatCard.css";
+import "./card.css";
 import Icons from "../../../../constants"
 
 interface CardProps {

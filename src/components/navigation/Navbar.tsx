@@ -1,9 +1,8 @@
-import SideBar from "./MenuSideBar/SideBar";
 import Icons from "../../../constants";
 import Link from "next/link";
 import Image from "next/image";
 
-import "./Navbar.css";
+import "./navbar.css";
 
 const Navbar = () => {
   return (

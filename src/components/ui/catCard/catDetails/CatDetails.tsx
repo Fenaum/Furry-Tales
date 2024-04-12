@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import "./CatDetails.css";
+import "./catDetails.css";
 import { Cat } from "../../../../models/Cat";
 import Image from "next/image";
 import Icons from "../../../../../constants"

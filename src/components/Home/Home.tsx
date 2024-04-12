@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { onAuthStateChanged } from "../../utils/auth";
-import CardContainer from "../ui/CatCard/CardContainer";
+import CardContainer from "../ui/catCard/CardContainer";
 import HeroCard from "../ui/HeroCard/HeroCard";
 import Testimonies from "../Testimonies/Testimonies";
 import "./home.css";

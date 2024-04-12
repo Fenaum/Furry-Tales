@@ -4,7 +4,7 @@
 import { useState, useEffect } from "react";
 import { Cat } from "../../../models/Cat";
 import Card from "./Card";
-import CatDetails from "./CatDetails/CatDetails";
+import CatDetails from "./catDetails/CatDetails";
 
 const CardContainer = () => {
   const [cats, setCats] = useState<Cat[]>([]);

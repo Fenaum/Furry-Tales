@@ -1,7 +1,7 @@
 "use client";
 
 import BurgerMenuIcon from "../../../../public/hamburger-menu-svgrepo-com.svg";
-import "./BurgerMenu.css";
+import "./burgerMenu.css";
 
 interface BurgerMenuProps {
   handleMenu: () => void;
