@@ -1,12 +1,9 @@
-import { collection } from "firebase/firestore";
-import { db } from "../../firebase/firebaseConfig";
-
 export interface User {
   id: string;
   email: string;
   name: string;
   profilePicture?: string;
-  role: "adopter" | "owner" | "admin";
+  role: "adopter" | "owner" | "admin" | "breeder";
   age?: number;
   gender?: "male" | "female";
   bio?: string;
@@ -27,9 +24,15 @@ export interface User {
   };
   dateJoined: Date;
   lastActive: Date;
-  swipes: string[];
   matches: string[];
-  match: boolean;
+  address: Address;
 }
 
-export const userProfilesCollection = collection(db, "UserProfiles");
+// Address.ts
+export interface Address {
+  street: string;
+  city: string;
+  state: string;
+  zip: string;
+  country: string;
+}

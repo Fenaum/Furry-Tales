@@ -2,7 +2,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Cat } from "../../../models/Cat";
+import { Cat } from "../../../model/Cat";
 import Card from "./Card";
 import CatDetails from "./catDetails/CatDetails";
 

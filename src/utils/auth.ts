@@ -1,5 +1,5 @@
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import { db, auth } from "../../firebase/firebaseConfig"; // import your firebase instance
+import { db, auth } from "./firebase/firebaseConfig"; // import your firebase instance
 import { collection, doc, setDoc } from "firebase/firestore";
 
 export async function signInWithGoogle() {

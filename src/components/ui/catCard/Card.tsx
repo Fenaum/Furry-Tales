@@ -1,6 +1,6 @@
 // components/ui/Card/Card.tsx
 import React from "react";
-import { Cat } from "../../../models/Cat";
+import { Cat } from "../../../model/Cat";
 import Image from "next/image";
 import "./card.css";
 import Icons from "../../../../constants"

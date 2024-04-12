@@ -1,5 +1,3 @@
-import { db } from "../../../../firebase/firebaseConfig";
-
 export interface Cat {
   id: string;
   name: string;
@@ -10,14 +8,21 @@ export interface Cat {
   gender: string;
   personality: string[];
   vaccinations: Record<string, boolean>;
-  owner: string;
+  owner: UserId;
   images: string[];
   location?: {
     latitude: number;
     longitude: number;
   };
-  swipes: string[];
   matches: string[];
-  match: boolean;
   bio: string;
+  adoptionStatus: AdoptionStatus;
 }
+
+export enum AdoptionStatus {
+  Available = "Available",
+  Adopted = "Adopted",
+  Pending = "Pending",
+}
+
+export type UserId = string;
