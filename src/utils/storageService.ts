@@ -1,6 +1,6 @@
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { collection, doc, setDoc } from "firebase/firestore";
-import { db } from "../../firebase/firebaseConfig";
+import { db } from "./firebase/firebaseConfig";
 
 const storage = getStorage();
 

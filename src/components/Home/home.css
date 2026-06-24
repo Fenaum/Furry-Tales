@@ -1,5 +1,92 @@
 
+.home-page {
+  width: min(100%, 1180px);
+  margin: 0 auto;
+  padding: 1.5rem clamp(1rem, 3vw, 2.5rem) 3rem;
+}
 
-.promotion > h2 {
-    color: navy;
+.breeder-discovery {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+  margin: clamp(2.5rem, 6vw, 5rem) 0;
+}
+
+.promotion {
+  max-width: 32rem;
+}
+
+.section-kicker {
+  color: #b45309;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.promotion h2 {
+  color: #172554;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 650;
+  line-height: 1.05;
+  margin: 0.75rem 0 1rem;
+}
+
+.promotion p {
+  color: #475569;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+}
+
+.trust-grid span {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  color: #334155;
+  font-size: 0.86rem;
+  font-weight: 650;
+  padding: 0.8rem;
+  text-align: center;
+}
+
+.explore-button {
+  background: #172554;
+  border: 0;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 700;
+  min-height: 2.75rem;
+  padding: 0.75rem 1.25rem;
+}
+
+.explore-button:hover {
+  background: #1e3a8a;
+}
+
+@media (max-width: 900px) {
+  .breeder-discovery {
+    grid-template-columns: 1fr;
+  }
+
+  .promotion {
+    max-width: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .home-page {
+    padding-inline: 0.9rem;
+  }
+
+  .trust-grid {
+    grid-template-columns: 1fr;
+  }
 }

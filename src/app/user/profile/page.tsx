@@ -1,33 +1,34 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { signOut } from "../../../utils/auth";
-import { getAuth } from "firebase/auth";
+import { getAuth, User } from "firebase/auth";
 
 export default function Profile() {
   const auth = getAuth();
-  const user = auth.currentUser;
   const router = useRouter();
+  const [user, setUser] = useState<User | null>(null);
 
-  if (user) {
-    const userId = user.uid;
-    // Make a request to the API route with the user ID
-    fetch(`/api/profile/${userId}`)
-      .then((response) => response.json())
-      .then((userProfile) => {
-        return userProfile;
-        // Handle the user profile data
-      })
-      .catch((error) => {
-        console.error(error);
-        return null;
-        // Handle the error
-      });
-  } else {
-    // User is not signed in
-    console.log("User is not signed in");
-    router.push("/user/signin");
-  }
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((currentUser) => {
+      if (!currentUser) {
+        router.push("/user/signin");
+        return;
+      }
+
+      setUser(currentUser);
+
+      fetch(`/api/user/profile?id=${currentUser.uid}`)
+        .then((response) => response.json())
+        .catch((error) => {
+          console.error(error);
+          return null;
+        });
+    });
+
+    return () => unsubscribe();
+  }, [auth, router]);
 
   async function logout() {
     await signOut();
@@ -41,7 +42,7 @@ export default function Profile() {
 
   return (
     <>
-      {user && (
+      {user ? (
         <div>
           <div>
             <h1>Profile</h1>
@@ -52,6 +53,8 @@ export default function Profile() {
           </div>
           <button onClick={handleLogout}>Log out</button>
         </div>
+      ) : (
+        <div>Loading profile...</div>
       )}
     </>
   );

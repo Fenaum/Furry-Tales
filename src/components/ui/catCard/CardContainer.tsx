@@ -17,7 +17,9 @@ const CardContainer = () => {
     const catData = await response.json();
     setCats(catData);
     setIsLoading(false);
-    setCurrentCatIndex(Math.floor(Math.random() * catData.length));
+    if (catData.length > 0) {
+      setCurrentCatIndex(Math.floor(Math.random() * catData.length));
+    }
   }
 
   useEffect(() => {
@@ -50,7 +52,7 @@ const CardContainer = () => {
     }
   }
   return (
-    <div className="cat-container mx-20">
+    <div className="cat-container">
       {cats.length > 0 && !isLoading ? (
         <>
           <Card
@@ -64,8 +66,8 @@ const CardContainer = () => {
           )}
         </>
       ) : (
-        <div>
-          <h2>Is loading</h2>
+        <div className="cat-card-loading">
+          <h2>Loading breeder cats...</h2>
         </div>
       )}
     </div>

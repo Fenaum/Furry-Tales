@@ -1,43 +1,163 @@
 .CatDetails {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex; /* Enable Flexbox */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    z-index: 1;
+  align-items: center;
+  background-color: rgba(15, 23, 42, 0.72);
+  display: flex;
+  height: 100%;
+  inset: 0;
+  justify-content: center;
+  padding: 1rem;
+  position: fixed;
+  width: 100%;
+  z-index: 20;
 }
 
 .CatDetails-card {
-    width: 500px;
-    height: 500px;
-    background-color: white;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 30px 90px rgba(15, 23, 42, 0.35);
+  display: grid;
+  grid-template-columns: minmax(220px, 0.9fr) minmax(260px, 1fr);
+  max-height: min(760px, 92vh);
+  max-width: 960px;
+  overflow: hidden;
+  position: relative;
+  width: min(100%, 960px);
 }
 
 .CatDetails-close {
-    position: absolute;
-    top: .1rem;
-    right: .2rem;
-    cursor: pointer;
-    color: red;
-    z-index: 2;
+  background: rgba(15, 23, 42, 0.78);
+  border: 0;
+  border-radius: 999px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 700;
+  min-height: 2.25rem;
+  padding: 0 0.9rem;
+  position: absolute;
+  right: 0.75rem;
+  top: 0.75rem;
+  z-index: 2;
 }
 
-.image-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    height: 50%;;
+.CatDetails-image {
+  align-items: center;
+  background: #0f172a;
+  display: flex;
+  justify-content: space-between;
+  min-height: 520px;
+  overflow: hidden;
+  position: relative;
+}
+
+.CatDetails-image img {
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+  position: absolute;
+  width: 100%;
+}
+
+.CatDetails-prev,
+.CatDetails-next {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.88);
+  border: 0;
+  border-radius: 999px;
+  color: #172554;
+  cursor: pointer;
+  display: flex;
+  height: 2.5rem;
+  justify-content: center;
+  margin: 0 0.75rem;
+  padding: 0;
+  position: relative;
+  width: 2.5rem;
+  z-index: 1;
+}
+
+.CatDetails-content {
+  color: #334155;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.CatDetails-kicker {
+  color: #b45309;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.CatDetails-content h1 {
+  color: #172554;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 750;
+  line-height: 1;
+  margin: 0.4rem 0 0.8rem;
+}
+
+.CatDetails-content p {
+  line-height: 1.75;
+  margin: 0 0 1rem;
+}
+
+.CatDetails-meta {
+  color: #64748b;
+  font-weight: 700;
+}
+
+.CatDetails-summary {
+  display: grid;
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+
+.CatDetails-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-bottom: 1.5rem;
+}
+
+.CatDetails-section {
+  background: #f8fafc;
+  border-radius: 16px;
+  padding: 1rem 1.2rem;
+}
+
+.CatDetails-section h2 {
+  color: #0f172a;
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.CatDetails-inquiry {
+  align-self: flex-start;
+  background: #172554;
+  border: 0;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 700;
+  min-height: 2.75rem;
+  padding: 0.75rem 1rem;
+}
+
+@media (max-width: 720px) {
+  .CatDetails-card {
+    grid-template-columns: 1fr;
+    overflow-y: auto;
+  }
+
+  .CatDetails-image {
+    min-height: 320px;
+  }
+
+  .CatDetails-grid {
+    grid-template-columns: 1fr;
+  }
 }

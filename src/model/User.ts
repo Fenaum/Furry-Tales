@@ -3,7 +3,7 @@ export interface User {
   email: string;
   name: string;
   profilePicture?: string;
-  role: "adopter" | "owner" | "admin" | "breeder";
+  role: "buyer" | "owner" | "admin" | "breeder";
   age?: number;
   gender?: "male" | "female";
   bio?: string;

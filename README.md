@@ -1,22 +1,29 @@
-# Furry-Tales 🐾
+# Furry-Tales
 
-Furry Tales is a delightful cat adoption platform built with Next.js, Firebase, React.js, and TypeScript. It offers a unique and user-friendly experience for cat lovers seeking their purr-fect feline companions.
+Furry Tales is a cat breeder marketplace built with Next.js, Firebase, React, and TypeScript. It helps future cat owners discover reputable breeders, compare available kittens and adult cats, review breed details, and start informed conversations before joining a litter waitlist or scheduling a visit.
 
-## Furry-Tales:
+## Product Focus
 
-- 🐱 **Cat Profiles:** Create detailed profiles for your cats, showcasing their personalities, ages, and adorable photos.
-- 🔍 **Smart Matching:** A sophisticated matching algorithm suggests cats based on user preferences, creating meaningful connections.
-- 📷 **Photo Sharing:** Share captivating moments of your cats with the community and potential adopters.
-- 💬 **Messaging System:** Communicate with other cat lovers, arrange meet-ups, and discuss potential adoptions.
-- 🗺️ **Geolocation Integration:** Find cats available for adoption in your local area.
+- **Breeder Profiles:** Showcase breeding programs, available cats, lineage notes, temperament, health records, and photo galleries.
+- **Smart Matching:** Recommend cats and breeders based on breed preference, personality fit, distance, and household needs.
+- **Litter Discovery:** Help buyers browse current and upcoming litters, availability, and inquiry status.
+- **Messaging:** Let buyers and breeders discuss health guarantees, deposits, visits, transport, and care expectations.
+- **Geolocation:** Surface reputable breeders nearby while still supporting broader regional searches.
 
-## Tech Stack:
+## Tech Stack
 
 - **Frontend:** React.js, Next.js, TypeScript
 - **Backend:** Firebase (Firestore, Authentication)
-- **Styling:** StyleX and Shadcn UI for a customized and visually appealing UI/UX.
+- **Styling:** Tailwind CSS, component CSS, and shadcn-style primitives.
 
-## How to Contribute:
+## Experience Goals
+
+- Make breeder trust signals clear: health checks, vaccination status, breeder location, and communication history.
+- Keep browsing visual and fast with strong cat imagery, simple controls, and clear next steps.
+- Avoid adoption language in user-facing flows; the app should feel like a responsible breeder discovery and inquiry tool.
+- Use calm, polished UI patterns that feel credible for families comparing breeders.
+
+## How to Contribute
 
 We welcome contributions from fellow cat enthusiasts and developers! To get started, follow these steps:
 
@@ -27,13 +34,23 @@ We welcome contributions from fellow cat enthusiasts and developers! To get star
 5. Make your enhancements or bug fixes.
 6. Create a pull request, and our team will review it.
 
-## Setup:
+## Setup
 
 1. Clone the repository:
    ```bash
    git clone git@github.com:Fenaum/Furry-Tales.git
+   ```
 2. Navigate to the project directory:
+   ```bash
+   cd Furry-Tales
+   ```
 3. Install dependencies:
+   ```bash
+   npm install
+   ```
 4. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
-### Visit our live demo here and join us in creating a world where every cat finds its forever home and makes the cat community a better place! 🏡🐈 
+The live experience should present Furry Tales as a trusted breeder discovery platform where cat lovers can compare breeds, meet responsible breeders, and begin transparent purchase inquiries.

@@ -1,17 +1,19 @@
-/* CatCard.css */
+.cat-container {
+  display: flex;
+  justify-content: center;
+}
+
 .cat-card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  box-shadow: 0 24px 55px rgba(15, 23, 42, 0.16);
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(9, auto);
-  gap: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  padding: 1rem;
-  width: 20rem;
-  height: 30rem;
-  margin: auto;
-  position: relative; /* Needed for absolute positioning of children */
-  background-color: azure;
+  grid-template-rows: 1fr auto;
+  height: 34rem;
+  overflow: hidden;
+  position: relative;
+  width: min(100%, 23rem);
 }
 
 .image-container {
@@ -19,49 +21,103 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 85% !important; /* Image takes up 75% of the card */
-  overflow: hidden; /* Ensures the image doesn't overflow its container */
-  border-radius: 10px;
+  height: 100%;
+  overflow: hidden;
 }
 
 .card-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  
 }
 
 .card-details {
-  grid-row: 8; /* Details take up the second row */
+  align-self: end;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0), rgba(15, 23, 42, 0.88));
+  color: #fff;
   display: flex;
-  justify-content: space-between;
-  align-items: end;
   gap: 0.5rem;
-  border-radius: 0 0 10px 10px; /* Match the border-radius of the card */
-  font-size: 0.9rem;
-  color: white;
+  justify-content: space-between;
+  align-items: flex-end;
+  min-height: 12rem;
+  padding: 5.5rem 1.2rem 4.9rem;
   z-index: 1;
+}
+
+..card-details h2 {
+  font-size: 1.65rem;
+  font-weight: 750;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.card-details p {
+  color: #e2e8f0;
+  font-size: 0.92rem;
+  margin: 0;
+}
+
+.card-subtitle,
+.card-tagline {
+  color: #cbd5e1;
+  font-size: 0.88rem;
+  margin-top: 0.35rem;
+}
+
+.card-tagline {
+  color: #f8fafc;
+}
+
+.card-kicker {
+  color: #fbbf24 !important;
+  font-size: 0.72rem !important;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.35rem !important;
+  text-transform: uppercase;
 }
 
 .card-buttons {
-  grid-row: 9;
-  display: flex;
-  justify-content: space-around;
   align-items: center;
+  bottom: 1rem;
+  display: flex;
   gap: 0.5rem;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  right: 0;
   z-index: 1;
 }
 
-button {
-  color: white;
+.card-buttons button {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.92);
   border: none;
-  border-radius: 5px;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
+  border-radius: 999px;
+  color: #172554;
   cursor: pointer;
+  display: inline-flex;
   height: 3rem;
-  align-self: end;
+  justify-content: center;
+  padding: 0;
+  width: 3rem;
 }
 
-button:hover {
+.card-buttons button:hover {
+  background: #fff;
+  transform: translateY(-1px);
+}
+
+.card-buttons .primary-card-button {
+  background: #f59e0b;
+  color: #111827;
+  height: 3.75rem;
+  width: 3.75rem;
+}
+
+@media (max-width: 560px) {
+  .cat-card {
+    height: 31rem;
+    width: min(100%, 21rem);
+  }
 }
