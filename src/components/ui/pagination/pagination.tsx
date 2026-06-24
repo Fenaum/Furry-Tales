@@ -2,7 +2,24 @@ import * as React from "react";
 import { ChevronLeft, ChevronRight, MoreHorizontal } from "lucide-react";
 
 import { cn } from "../../../utils/utils";
-import { ButtonProps, buttonVariants } from "@/components/ui/button";
+
+type ButtonSize = "default" | "icon";
+
+function buttonVariants({
+  variant,
+  size,
+}: {
+  variant: "outline" | "ghost";
+  size: ButtonSize;
+}) {
+  return cn(
+    "inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 disabled:pointer-events-none disabled:opacity-50",
+    variant === "outline"
+      ? "border border-slate-200 bg-white hover:bg-slate-100"
+      : "hover:bg-slate-100",
+    size === "icon" ? "h-9 w-9" : "h-9 px-4 py-2"
+  );
+}
 
 const Pagination = ({ className, ...props }: React.ComponentProps<"nav">) => (
   <nav
@@ -36,7 +53,8 @@ PaginationItem.displayName = "PaginationItem";
 
 type PaginationLinkProps = {
   isActive?: boolean;
-} & Pick<ButtonProps, "size"> &
+  size?: ButtonSize;
+} &
   React.ComponentProps<"a">;
 
 const PaginationLink = ({

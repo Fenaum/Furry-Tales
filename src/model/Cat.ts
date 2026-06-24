@@ -3,11 +3,19 @@ export interface Cat {
   name: string;
   age: number;
   breed: string;
+  breedDescription?: string;
   color: string;
   weight: number;
   gender: string;
   personality: string[];
+  characteristics?: string[];
   vaccinations: Record<string, boolean>;
+  healthNotes?: string[];
+  parents?: {
+    mother: string;
+    father: string;
+    notes?: string;
+  };
   owner: UserId;
   images: string[];
   location?: {
@@ -16,12 +24,12 @@ export interface Cat {
   };
   matches: string[];
   bio: string;
-  adoptionStatus: AdoptionStatus;
+  availabilityStatus: AvailabilityStatus;
 }
 
-export enum AdoptionStatus {
+export enum AvailabilityStatus {
   Available = "Available",
-  Adopted = "Adopted",
+  Reserved = "Reserved",
   Pending = "Pending",
 }
 

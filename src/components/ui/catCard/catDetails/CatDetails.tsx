@@ -1,9 +1,9 @@
 "use client";
 import React from "react";
 import "./catDetails.css";
-import { Cat } from "../../../../models/Cat";
+import { Cat } from "../../../../model/Cat";
 import Image from "next/image";
-import Icons from "../../../../../constants"
+import Icons from "../../../../../constants";
 
 interface CardProps {
   cat: Cat;
@@ -11,22 +11,19 @@ interface CardProps {
 }
 
 const CatDetails: React.FC<CardProps> = ({ cat, onClose }) => {
+  const personality = cat.personality?.join(", ") || "Unknown";
+  const characteristics = cat.characteristics?.join(", ") || "N/A";
+  const healthNotes = cat.healthNotes?.join(" · ") || "No additional health notes.";
 
-const personality = cat.personality.map((personalityTrait, index, array) => (
-  <span key={personalityTrait}>
-    {personalityTrait}
-    {index < array.length - 1 ? ", " : ""}
-  </span>
-));
   return (
     <div className="CatDetails">
       {cat ? (
         <>
           <div className="CatDetails-card">
             <button className="CatDetails-close" onClick={onClose}>
-              x
+              Close
             </button>
-            <div className="image-container">
+            <div className="CatDetails-image">
               <button className="CatDetails-prev">
                 <Icons.previous className="w-6 h-6" />
               </button>
@@ -40,13 +37,41 @@ const personality = cat.personality.map((personalityTrait, index, array) => (
                 <Icons.next className="w-6 h-6" />
               </button>
             </div>
-            <h1> {cat.name} </h1>
-            <p>personality: {personality}</p>
-            <p>{cat.bio}</p>
+            <div className="CatDetails-content">
+              <p className="CatDetails-kicker">{cat.breed} profile</p>
+              <h1>{cat.name}</h1>
+              <p className="CatDetails-meta">
+                {cat.gender} · {cat.age} years · {cat.color}
+              </p>
+              <div className="CatDetails-summary">
+                <p><strong>Breed:</strong> {cat.breed}</p>
+                <p><strong>Weight:</strong> {cat.weight} kg</p>
+                <p><strong>Traits:</strong> {personality}</p>
+              </div>
+              <div className="CatDetails-grid">
+                <div className="CatDetails-section">
+                  <h2>Breed description</h2>
+                  <p>{cat.breedDescription || "This breed is known for its friendly and affectionate personality."}</p>
+                </div>
+                <div className="CatDetails-section">
+                  <h2>Parent lineage</h2>
+                  <p>Mother: {cat.parents?.mother || "Unknown"}</p>
+                  <p>Father: {cat.parents?.father || "Unknown"}</p>
+                  {cat.parents?.notes && <p>{cat.parents.notes}</p>}
+                </div>
+              </div>
+              <div className="CatDetails-section">
+                <h2>Health & characteristics</h2>
+                <p>{healthNotes}</p>
+                <p><strong>Additional notes:</strong> {characteristics}</p>
+              </div>
+              <p>{cat.bio}</p>
+              <button className="CatDetails-inquiry">Start breeder inquiry</button>
+            </div>
           </div>
         </>
       ) : (
-        <p> loading </p>
+        <p>Loading profile...</p>
       )}
     </div>
   );

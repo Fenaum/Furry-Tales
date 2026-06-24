@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import "../user.css";
 import { signInWithGoogle } from "../../../utils/auth"; // Import the Google Sign-In function
@@ -9,10 +10,12 @@ export default function Register() {
   const router = useRouter();
   const auth = getAuth();
   const user = auth.currentUser;
-  // If the user is already signed in, redirect to the home page or dashboard
-  if (user) {
-    router.push("/user/profile");
-  }
+
+  useEffect(() => {
+    if (user) {
+      router.push("/user/profile");
+    }
+  }, [router, user]);
   // Sign in with Google
 
   const handleSignUpWithGoogle = async () => {
